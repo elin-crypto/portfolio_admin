@@ -1,0 +1,268 @@
+@charset "UTF-8";
+/* CSS Document */
+/**********************************************************
+ * 
+ * Project FBK 
+ * 
+ * Written by Elin Kurtsdotter / webbutvecklingII Miun VT2020
+ * 
+************************************************************/
+
+/* ***************************
+RESET THE PAGE
+******************************/
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+/* Document
+   ========================================================================== */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+ html {
+    line-height: 1.5; /* 1 */
+    -webkit-text-size-adjust: 100%; /* 2 */
+  }
+  /* Sections
+     ========================================================================== */
+  /**
+   * Remove the margin in all browsers.
+   */
+  body {
+    margin: 0;
+  }
+  /**
+   * Render the `main` element consistently in IE.
+   */
+  main {
+    display: block;
+  }
+  /**
+   * Correct the font size and margin on `h1` elements within `section` and
+   * `article` contexts in Chrome, Firefox, and Safari.
+   */
+  h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+  }
+  /* Grouping content
+     ========================================================================== */
+  /**
+   * 1. Add the correct box sizing in Firefox.
+   * 2. Show the overflow in Edge and IE.
+   */
+  hr {
+    box-sizing: content-box; /* 1 */
+    height: 0; /* 1 */
+    overflow: visible; /* 2 */
+  }
+  /**
+   * 1. Correct the inheritance and scaling of font size in all browsers.
+   * 2. Correct the odd `em` font sizing in all browsers.
+   */
+  pre {
+    font-family: monospace, monospace; /* 1 */
+    font-size: 1em; /* 2 */
+  }
+  /* Text-level semantics
+     ========================================================================== */
+  /**
+   * Remove the gray background on active links in IE 10.
+   */
+  a {
+    background-color: transparent;
+    color: #000;
+    text-decoration: none;
+  }
+  a:visited {
+      color: initial;
+  }
+  /**
+   * 1. Remove the bottom border in Chrome 57-
+   * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+   */
+  abbr[title] {
+    border-bottom: none; /* 1 */
+    text-decoration: underline; /* 2 */
+    text-decoration: underline dotted; /* 2 */
+  }
+  /**
+   * Add the correct font weight in Chrome, Edge, and Safari.
+   */
+  b,
+  strong {
+    font-style: normal;
+    font-weight: 900;
+  }
+  /**
+   * 1. Correct the inheritance and scaling of font size in all browsers.
+   * 2. Correct the odd `em` font sizing in all browsers.
+   */
+  code,kbd, samp {
+    font-family: monospace, monospace; /* 1 */
+    font-size: 1em; /* 2 */
+  }
+  /**
+   * Add the correct font size in all browsers.
+   */
+  small {
+    font-size: 100%;
+  }
+  /**
+   * Prevent `sub` and `sup` elements from affecting the line height in
+   * all browsers.
+   */
+  sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+  sub {
+    bottom: -0.25em;
+  }
+  sup {
+    top: -0.5em;
+  }
+  /* Embedded content
+     ========================================================================== */
+  /**
+   * Remove the border on images inside links in IE 10.
+   */
+  img {
+    border-style: none;
+    max-width: 100%;
+    display: block;
+  }
+  /* Misc
+     ========================================================================== */
+  /**
+   * Add the correct display in IE 10+.
+   */
+  template {
+    display: none;
+  }
+  /**
+   * Add the correct display in IE 10.
+   */
+  [hidden] {
+    display: none;
+  }
+
+
+
+
+/* ===========================================================
+*****************************************************************
+
+                THIS IS WHERE MY CODE STARTS
+
+*****************************************************************
+============================================================= */ 
+
+body {
+    background-color: rgb(240, 253, 255);
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    min-height: 100vh;
+}
+#pageHeader {
+    background-color: rgb(12, 123, 88);
+    margin: 0 auto;
+    height: 4em;
+    width: 100%;
+}
+#logo a {
+    color: rgb(255, 255, 255);
+    font-family: 'Poppins', sans-serif;
+    font-size: 2em;
+    position: absolute;
+    margin-top: 0.3em;
+    margin-left: 1em;
+}
+#logoutButton {
+  position: absolute;
+  right: 1em;
+  top: 1em;
+}
+main {
+  margin-top: 3em;
+}
+#container {
+    width: 70%;
+    max-width: 9600px;
+    margin: 0 auto;
+}
+#login_ftw {
+  text-align: center;
+  margin-top: 25vh;
+}
+.formBox {
+    text-align: center;
+    margin-top: 6em;
+}
+.btn {
+    background-color: rgb(12, 123, 88);
+    color: #fff;
+    border: none;
+    text-align: center;
+    padding: 0.5em 1em;
+    cursor: pointer;
+}
+
+/*FORMS*/
+h1 {
+  margin-top: 2em;
+}
+.kursiv {
+  font-style: italic;
+}
+form {
+  margin-bottom: 3em;
+}
+form input {
+  padding: 0.5em;
+  margin-bottom: 1em;
+}
+#addEducationForm input {
+  width: 50%;
+}
+#showEducationForm,
+#showWorkForm,
+#showWebsiteForm {
+  cursor: pointer;
+  color: purple;
+}
+
+#addEducationForm,
+#addWorkForm,
+#addWebsiteForm {
+  display: none;
+}
+section.websiteSection {
+  margin-bottom: 2em;
+}
+/*TABLES*/
+table {
+  margin-bottom: 1em;
+}
+thead tr {
+  font-weight: 600;
+}
+table td {
+  padding-right: 2em;
+}
+.hide {
+  display: none;
+}
+#footerInfo {
+  height: 10em;
+}
+.oneWebsite {
+  position: relative;
+}
+section.websiteSection {
+  width: 50%;
+}
+section.img-thumb {
+  
+  width: 40%;
+}
