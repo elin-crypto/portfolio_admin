@@ -187,8 +187,8 @@ main {
   margin-top: 3em;
 }
 #container {
-    width: 70%;
-    max-width: 9600px;
+    width: 90%;
+    max-width: 1200px;
     margin: 0 auto;
 }
 #login_ftw {
@@ -265,4 +265,10 @@ section.websiteSection {
 section.img-thumb {
   
   width: 40%;
+}
+p.label {
+  font-weight: 700;
+}
+p.editable {
+  margin-bottom: 0.5em;
 }

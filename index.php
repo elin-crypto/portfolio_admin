@@ -14,27 +14,21 @@ include("includes/header.php");
 $mail = "";
 $password = "";
 
-//login user
-
+// check if user is logged in. go to content.php if true
 if(isset($_POST["username"])){
     $username = $_POST["username"];
     $password = $_POST["password"];
-    
-
 
     if($username == "elin" && $password == "password") {
         $_SESSION['username'] = $username;
         header("location:content.php");
-    
     } else {
         $message = "<p class='error_msg'>Fel användarnamn eller lösenord.</p>";
     }
-
-
 }
 
 
-
+// show if not logged in
 if(!isset($_SESSION['username'])) {?>   
     <!-- Login form -->
     <main>

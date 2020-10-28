@@ -24,6 +24,7 @@ let eduStartInput = document.getElementById("eduStart");
 let eduStopInput = document.getElementById("eduStop");
 let updateEducationEl = document.getElementById("updateEducation");
 let addEducationFormEl = document.getElementById("addEducationForm");
+
 //work
 let workEl = document.getElementById("work");
 let addWorkBtn = document.getElementById("addWork");
@@ -42,7 +43,7 @@ let wsUrlInput = document.getElementById("wsUrl");
 let wsDescriptionInput = document.getElementById("wsDescription");
 let updateWebsiteEl = document.getElementById("updateWebsite");
 let addWebsiteFormEl = document.getElementById("addWebsiteForm");
-let wsImageInput = document.getElementById("file");
+let wsImageInput = document.getElementById("image");
 
 //eventListener
 window.addEventListener('load', getCourses);
@@ -61,7 +62,7 @@ addWebsiteBtn.addEventListener('click', addWebsite);
 function getCourses() {
   educationEl.innerHTML = '';
 
-  fetch('http://studenter.miun.se/~elku1901/dt173g/Projekt/portfolioAdmin/API/education.php')
+  fetch('http://studenter.miun.se/~elku1901/writeable/projektAdmin/API/education.php')
     .then(respones => respones.json())
     .then(data => {
       data.forEach(education => {
@@ -81,7 +82,7 @@ function getCourses() {
 
 // DELETE COURSES
 function deleteCourse(id) {
-  fetch('http://studenter.miun.se/~elku1901/dt173g/Projekt/portfolioAdmin/API/education.php?id=' + id, {
+  fetch('http://studenter.miun.se/~elku1901/writeable/projektAdmin/API/education.php?id=' + id, {
     method: 'DELETE',
   })
     .then(response => response.json())
@@ -106,7 +107,7 @@ function addCourse(ev) {
   //make it an object
   let education = {'edu_school': school, 'edu_name': eduName, 'edu_start': eduStart, 'edu_stop': eduStop};
 
-  fetch('http://studenter.miun.se/~elku1901/dt173g/Projekt/portfolioAdmin/API/education.php', {
+  fetch('http://studenter.miun.se/~elku1901/writeable/projektAdmin/API/education.php', {
     method: 'POST',
     body: JSON.stringify(education),
   })
@@ -120,6 +121,7 @@ function addCourse(ev) {
     
     .catch(error => {
       console.log('Error: ', error);
+      
     })
 }
 
@@ -140,7 +142,7 @@ function updateCourse(id) {
   //make it an object
   let newCourse = {'edu_school': newSchool, 'edu_name': newEduName, 'edu_start': newEduStart, 'edu_stop': newEduStop};
 
-  fetch('http://studenter.miun.se/~elku1901/dt173g/Projekt/portfolioAdmin/API/education.php?id=' + id, {
+  fetch('http://studenter.miun.se/~elku1901/writeable/projektAdmin/API/education.php?id=' + id, {
     method: 'PUT',
     body: JSON.stringify(newCourse),
   })
@@ -164,7 +166,7 @@ function updateCourse(id) {
 function getWork() {
   workEl.innerHTML = '';
 
-  fetch('http://studenter.miun.se/~elku1901/dt173g/Projekt/portfolioAdmin/API/work.php')
+  fetch('http://studenter.miun.se/~elku1901/writeable/projektAdmin/API/work.php')
     .then(respones => respones.json())
     .then(data => {
       data.forEach(work => {
@@ -185,7 +187,7 @@ function getWork() {
 
  // * DELETE WORK
 function deleteWork(id) {
-  fetch('http://studenter.miun.se/~elku1901/dt173g/Projekt/portfolioAdmin/API/work.php?id=' + id, {
+  fetch('http://studenter.miun.se/~elku1901/writeable/projektAdmin/API/work.php?id=' + id, {
     method: 'DELETE',
   })
     .then(response => response.json())
@@ -210,7 +212,7 @@ function addWork(ev) {
   //make it an object
   let work = {'work_place': workPlace, 'work_title': workTitle, 'work_start': workStart, 'work_stop': workStop, 'work_city': workCity};
 
-  fetch('http://studenter.miun.se/~elku1901/dt173g/Projekt/portfolioAdmin/API/work.php', {
+  fetch('http://studenter.miun.se/~elku1901/writeable/projektAdmin/API/work.php', {
     method: 'POST',
     body: JSON.stringify(work),
   })
@@ -245,7 +247,7 @@ function updateWork(id) {
   //make it an object
   let newWork = {'work_place': newWorkplace, 'work_title': newWorkTitle, 'work_start': newWorkStart, 'work_stop': newWorkStop, 'work_city': newWorkCity};
 
-  fetch('http://studenter.miun.se/~elku1901/dt173g/Projekt/portfolioAdmin/API/work.php?id=' + id, {
+  fetch('http://studenter.miun.se/~elku1901/writeable/projektAdmin/API/work.php?id=' + id, {
     method: 'PUT',
     body: JSON.stringify(newWork),
   })
@@ -268,19 +270,19 @@ function updateWork(id) {
 function getWebsite() {
   websitesEl.innerHTML = '';
 
-  fetch('http://studenter.miun.se/~elku1901/dt173g/Projekt/portfolioAdmin/API/websites.php')
+  fetch('http://studenter.miun.se/~elku1901/writeable/projektAdmin/API/websites.php')
     .then(respones => respones.json())
     .then(data => {
       data.forEach(websites => {
         websitesEl.innerHTML +=
         `<div class="oneWebsite">
-        <section class="websiteSection">
-          <h4 contenteditable="true" id="nWsTitle${websites.id}"> ${websites.ws_title}</h4>
-            <p contenteditable="true" id="nWsUrl${websites.id}" class="kursiv">${websites.ws_url}</p>
-            <p contenteditable="true" id="nWsDescription${websites.id}"> ${websites.ws_description} </p>
-            <span><button id="${websites.id}" onclick="updateWebsite(${websites.id})" class="btn">Uppdatera</button></span>
-            <span><button id="${websites.id}" onclick="deleteWebsite(${websites.id})" class="btn">Radera</button></span>
-        </section>
+          <section class="websiteSection">
+            <p class="label">Titel: &emsp; </p><p class="editable" contenteditable="true" id="nWsTitle${websites.id}"> ${websites.ws_title}</p>
+            <p class="label">Url: &emsp; </p><p class="editable" contenteditable="true" id="nWsUrl${websites.id}" class="kursiv">${websites.ws_url}</p>
+            <p class="label">Beskrivning: &emsp; </p><p class="editable" contenteditable="true" id="nWsDescription${websites.id}"> ${websites.ws_description}</p>
+              <span><button id="${websites.id}" onclick="updateWebsite(${websites.id})" class="btn">Uppdatera</button></span>
+              <span><button id="${websites.id}" onclick="deleteWebsite(${websites.id})" class="btn">Radera</button></span>
+          </section>
         <!--<section class="img-thumb">
           <img src="images/${websites.ws_image}" alt="${websites.ws_image}">
           <p contenteditable="true" id="nWsImage${websites.id}">${websites.ws_image}</p>
@@ -292,7 +294,7 @@ function getWebsite() {
 
  // * DELETE Website
 function deleteWebsite(id) {
-  fetch('http://studenter.miun.se/~elku1901/dt173g/Projekt/portfolioAdmin/API/websites.php?id=' + id, {
+  fetch('http://studenter.miun.se/~elku1901/writeable/projektAdmin/API/websites.php?id=' + id, {
     method: 'DELETE',
   })
     .then(response => response.json())
@@ -316,7 +318,7 @@ function addWebsite(ev) {
   //make it an object
   let website = {'ws_title': wsTitle, 'ws_url': wsUrl, 'ws_description': wsDescription/*, 'ws_image': wsImage*/};
   
-  fetch('http://studenter.miun.se/~elku1901/dt173g/Projekt/portfolioAdmin/API/websites.php', {
+  fetch('http://studenter.miun.se/~elku1901/writeable/projektAdmin/API/websites.php', {
     method: 'POST',
     body: JSON.stringify(website),
   })
@@ -350,7 +352,7 @@ function updateWebsite(id) {
   //make it an object
   let newWebsite = {'ws_title': newWsTitle, 'ws_url': newWsUrl, 'ws_description': newWsDecription/*, 'ws_image': newWsImage*/};
 
-  fetch('http://studenter.miun.se/~elku1901/dt173g/Projekt/portfolioAdmin/API/websites.php?id=' + id, {
+  fetch('http://studenter.miun.se/~elku1901/writeable/projektAdmin/API/websites.php?id=' + id, {
     method: 'PUT',
     body: JSON.stringify(newWebsite),
   })
@@ -414,3 +416,5 @@ $(document).ready(function(){
     $("#addWebsiteForm").slideUp();
   });
 });
+
+
