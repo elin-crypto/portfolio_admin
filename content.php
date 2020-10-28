@@ -103,15 +103,15 @@ if(isset($_SESSION['username'])) {
     <h3 id="showWebsiteForm">Lägg till ny webbplats</h3>
     
     <form action="post" id="addWebsiteForm" enctype="multipart/form-data">
-        <input type="hidden" name="MAX_FILE_SIZE" value="700000"> <!-- Max 700kb storlek-->
+        <!-- <input type="hidden" name="MAX_FILE_SIZE" value="700000"> Max 700kb storlek-->
         <input type="text" name="wsTitle" id="wsTitle" placeholder="Titel">
         <br>
         <input type="text" name="wsUrl" id="wsUrl" placeholder="Url">
         <br>
         <input type="text" name="wsDescription" id="wsDescription" placeholder="Beskrivning">
         <br>
-        <input type="file" name="image" id="image">
-        <br>
+        <!--<input type="file" name="image" id="image">
+        <br>-->
         <span id="addWebsiteBtn" class="btn" >Lägg till webbplats</span> <span class="btn" id="hideWebsite">Dölj formulär</span>
     </form>
 
@@ -124,4 +124,7 @@ if(isset($_SESSION['username'])) {
     </div>
     <?php
 }
+
+
+
 include("includes/footer.php");
